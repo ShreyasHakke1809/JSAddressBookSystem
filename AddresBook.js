@@ -155,7 +155,18 @@ function FindAndEditContact() {
     }
 }
 
-
+//UC5 - Function to delete contact based on name
+function deleteContact() {
+    try {
+        let name = readlineSync.question('Enter The Name Of The Contact To delete Contact : ');
+        const index = addressBookContactArr.findIndex((contact) => contact.firstName == name);
+        //using splice remove the element
+        if (index != -1)
+            addressBookContactArr.splice(index, 1);
+    } catch (e) {
+        console.error(e);
+    }
+}
 //Function to perform addressbook operations(UC3)
 function AddressBookOperations() {
     try {
